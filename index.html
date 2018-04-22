@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+  <link data-require="bootstrap-css@*" data-semver="3.3.6" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1>Temperature Monitor</h1>
+  <hr>
+  <h4>Enter up to 8 temperatures below.</h4>
+  <br>
+<div ng-controller = 'TemperatureMonitor'>
+  <form>
+    <label for="temperature">Add Temperature:</label>
+    <input ng-model="inputTemp" type="number" name="temperature" id="temperature">
+    <button ng-click= "recordTemperature()">Add</button>
+    <button type= 'reset' name ="clear">Clear</button>
+  </form>
+  <br>
+  Temperatures added:
+  <br>
+  <b ng-repeat="temp in arrayTemp | limitTo:limit" >{{temp}} </b>
+  <br>
+  <progress ng-value='progBar' max= 8></progress><br>
+  
+  <hr />
+  <section>
+
+    
+    <button ng-click="getCurrentMedian()">Get Median Temperature</button>
+    <div ng-show="median"></div>
+    <p>Current Median: {{median}}</p>
+    
+
+   
+
+  </section>
+
+  <hr>
+  <hr>
+  <p>Developer name: Tia S. Edwards</p>
+
+  <hr>
+  <a href="jasmine-test-runner.html">Run Unit Tests</a>
+  <script data-require="angular.js@*" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="example.js"></script>
+</body>
+
+</html>
